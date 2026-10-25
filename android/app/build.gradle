@@ -1,0 +1,100 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+Properties localProps = new Properties()
+File localPropsFile = project.rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+def mapsApiKey = localProps.getProperty('MAPS_API_KEY') ?: localProps.getProperty('google.maps.key') ?: "YOUR_GOOGLE_MAPS_API_KEY"
+def backendUrl = localProps.getProperty('BACKEND_URL') ?: "http://192.168.31.148:8080"
+
+android {
+    namespace 'com.emergencyroutefinder'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.emergencyroutefinder"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        buildConfigField "String", "BACKEND_URL", "\"${backendUrl}\""
+        buildConfigField "String", "MAPS_API_KEY", "\"${mapsApiKey}\""
+        manifestPlaceholders = [MAPS_API_KEY: mapsApiKey]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // Override for physical phone testing:
+            // buildConfigField "String", "BACKEND_URL", '"http://192.168.1.100:8080"'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Material Design
+    implementation 'com.google.android.material:material:1.11.0'
+
+    // AppCompat and UI
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+
+    // OpenStreetMap (osmdroid) + Location
+    implementation 'org.osmdroid:osmdroid-android:6.1.18'
+    implementation 'com.google.android.gms:play-services-location:21.1.0'
+
+    // Firebase (FCM, Firestore, Auth)
+    implementation platform('com.google.firebase:firebase-bom:32.7.0')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Retrofit + OkHttp (REST networking)
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+
+    // WebSocket (STOMP over SockJS)
+    implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.6'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    // Glide (image loading)
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+
+    // SharedPreferences (session)
+    implementation 'androidx.preference:preference:1.2.1'
+
+    // Video player (ExoPlayer for traffic camera footage)
+    implementation 'androidx.media3:media3-exoplayer:1.2.1'
+    implementation 'androidx.media3:media3-ui:1.2.1'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.10.1'
+}

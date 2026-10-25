@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.EmergencyRouteFinder" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/emergency_red</item>
+        <item name="colorPrimaryVariant">@color/red_darker</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/brand_blue</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/emergency_red</item>
+        <item name="android:navigationBarColor">@color/bg_light</item>
+        <item name="android:windowBackground">@color/bg_light</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/text_dark</item>
+        <item name="android:textColorPrimary">@color/text_dark</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:editTextColor">@color/text_dark</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="editTextColor">@color/text_dark</item>
+        
+        <item name="textInputStyle">@style/Widget.EmergencyRouteFinder.TextInputLayout</item>
+        <item name="radioButtonStyle">@style/Widget.EmergencyRouteFinder.RadioButton</item>
+    </style>
+
+    <style name="Theme.EmergencyRouteFinder.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/emergency_red</item>
+        <item name="postSplashScreenTheme">@style/Theme.EmergencyRouteFinder</item>
+    </style>
+
+    <style name="Widget.EmergencyRouteFinder.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/brand_blue</item>
+        <item name="hintTextColor">@color/brand_blue</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+    </style>
+
+    <style name="Widget.EmergencyRouteFinder.RadioButton" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="android:textColor">@color/text_dark</item>
+        <item name="buttonTint">@color/brand_blue</item>
+    </style>
+
+    <style name="Widget.EmergencyRouteFinder.SOSButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/sos_button_bg</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+    </style>
+</resources>

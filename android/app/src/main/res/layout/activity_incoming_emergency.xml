@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#C62828">
+
+    <!-- EMERGENCY ALERT HEADER -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="24dp" android:gravity="center">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🚨 EMERGENCY ASSIGNMENT"
+            android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold"/>
+
+        <TextView android:id="@+id/tv_emergency_type"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#FFCDD2" android:textSize="28sp" android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <TextView android:id="@+id/tv_priority"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#FFCDD2" android:textSize="16sp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView android:id="@+id/tv_distance"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#FFFFFF" android:textSize="20sp"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- Progress timer -->
+    <ProgressBar android:id="@+id/progress_timer"
+        android:layout_width="match_parent" android:layout_height="16dp"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:progressTint="#FF9800" android:progress="30000" android:max="30000"/>
+
+    <TextView android:id="@+id/tv_countdown"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Auto-decline in 30s"
+        android:textColor="#FFCDD2" android:textAlignment="center"
+        android:padding="8dp"/>
+
+    <!-- Action Buttons -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="32dp" android:layout_marginTop="24dp">
+
+        <Button android:id="@+id/btn_accept"
+            android:layout_width="match_parent" android:layout_height="80dp"
+            android:text="✅ ACCEPT EMERGENCY"
+            android:textSize="18sp" android:textStyle="bold"
+            android:backgroundTint="#1B5E20"/>
+
+        <Button android:id="@+id/btn_decline"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:text="❌ Decline"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#424242"/>
+    </LinearLayout>
+
+</LinearLayout>

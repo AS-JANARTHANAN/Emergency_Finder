@@ -1,0 +1,2 @@
+// Stub activities — each extends AppCompatActivity with minimal setContentView.
+// Real implementations follow the same patterns demonstrated in other activities.

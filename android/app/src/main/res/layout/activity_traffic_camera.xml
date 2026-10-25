@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#FAFAFA">
+
+    <!-- Simulation Disclaimer -->
+    <TextView android:id="@+id/tv_simulation_note"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="#FFF3E0" android:textColor="#E65100"
+        android:padding="12dp" android:textSize="13sp"/>
+
+    <!-- Video Player -->
+    <androidx.media3.ui.PlayerView android:id="@+id/player_view"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:background="#000000"/>
+
+    <!-- Camera Info -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <Spinner android:id="@+id/spinner_camera"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView android:id="@+id/tv_camera_name"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textStyle="bold"/>
+        <TextView android:id="@+id/tv_road_name"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#757575"/>
+        <TextView android:id="@+id/tv_traffic_level"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7">
+
+    <!-- 1. LOADING SIMULATION -->
+    <LinearLayout
+        android:id="@+id/ll_loading_simulation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_emergency_alert"
+            app:tint="#D84315"
+            android:layout_marginBottom="24dp" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:indeterminateTint="#D84315" />
+
+        <TextView
+            android:id="@+id/tv_simulation_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checking traffic sources..."
+            android:textColor="#D84315"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- 2. EXISTING CONTENT RESTYLED TO MATCH REQUEST -->
+    <ScrollView
+        android:id="@+id/ll_existing_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_card"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TRAFFIC ANALYSIS"
+                    android:textColor="#D84315"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Traffic Status"
+                    android:textColor="#757575"
+                    android:textSize="12sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/tv_fused_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Loading..."
+                    android:textColor="#D84315"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginBottom="24dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Available Traffic Sources"
+                    android:textColor="#757575"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- The Java code dynamically modifies these. I'll just keep the IDs so it populates correctly -->
+                <TextView android:id="@+id/tv_google_status"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="14sp" android:textColor="#212121" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/tv_camera_status"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="14sp" android:textColor="#212121" android:layout_marginBottom="4dp"/>
+                <TextView android:id="@+id/tv_crowd_status"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="14sp" android:textColor="#212121" android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Road Analysis"
+                    android:textColor="#757575"
+                    android:textSize="12sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Current route analyzed"
+                    android:textColor="#212121"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Recommendation"
+                    android:textColor="#757575"
+                    android:textSize="12sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use the recommended route"
+                    android:textColor="#212121"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Retain other hidden metadata so Java doesn't crash -->
+                <TextView android:id="@+id/tv_confidence" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+                <TextView android:id="@+id/tv_delay_factor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+                <TextView android:id="@+id/tv_sources_used" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+                <TextView android:id="@+id/tv_weights" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+                <TextView android:id="@+id/tv_simulation_note" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+                <ProgressBar android:id="@+id/progress_bar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="gone"/>
+
+                <Button
+                    android:id="@+id/btn_view_route_from_traffic"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:backgroundTint="#D84315"
+                    android:text="VIEW ROUTE"
+                    android:textSize="16sp"
+                    app:cornerRadius="28dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

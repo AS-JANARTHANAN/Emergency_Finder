@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Emergency Route Finder</string>
+    <string name="login_title">Sign In</string>
+    <string name="register_user">Register as User</string>
+    <string name="register_worker">Register as Worker</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="submit">Submit</string>
+    <string name="sos_button">🚨 SOS — Request Emergency</string>
+    <string name="simulation_disclaimer">⚠️ Some data may be simulated for demonstration</string>
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7F7F7">
+
+    <!-- 1. LOADING SIMULATION -->
+    <LinearLayout
+        android:id="@+id/ll_loading_simulation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_emergency_alert"
+            app:tint="#0878D1"
+            android:layout_marginBottom="24dp" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:indeterminateTint="#0878D1" />
+
+        <TextView
+            android:id="@+id/tv_simulation_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Initializing route analysis..."
+            android:textColor="#0878D1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- 2. RESULT CARD -->
+    <LinearLayout
+        android:id="@+id/ll_result_card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_rounded_card"
+            android:elevation="4dp"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AI ROUTE ANALYSIS"
+                android:textColor="#0878D1"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="âœ“ Best Route Identified"
+                android:textColor="#2E7D32"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended Route"
+                android:textColor="#757575"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fastest available route"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Traffic Consideration"
+                android:textColor="#757575"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Analyzed"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Route Status"
+                android:textColor="#757575"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btn_view_route_from_ai"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:backgroundTint="#0878D1"
+                android:text="VIEW ROUTE"
+                android:textSize="16sp"
+                app:cornerRadius="28dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 3. EXISTING CONTENT -->
+    <LinearLayout
+        android:id="@+id/ll_existing_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <org.osmdroid.views.MapView android:id="@+id/map"
+            android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:background="#FAFAFA">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+
+                <TextView android:id="@+id/tv_recommended_label"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textStyle="bold" android:textSize="16sp" android:textColor="#1B5E20"
+                    android:padding="12dp" android:background="#E8F5E9"
+                    android:text="Loading routes..."/>
+
+                <TextView android:id="@+id/tv_recommended_reason"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="13sp" android:textColor="#424242"
+                    android:layout_marginTop="4dp"/>
+
+                <TextView android:id="@+id/tv_traffic_summary"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:textSize="12sp" android:fontFamily="monospace"
+                    android:layout_marginTop="12dp" android:padding="8dp"
+                    android:background="#F5F5F5"/>
+
+                <ProgressBar android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_gravity="center" android:visibility="gone"/>
+
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="All Route Options:" android:textStyle="bold"
+                    android:layout_marginTop="16dp" android:layout_marginBottom="8dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_routes"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

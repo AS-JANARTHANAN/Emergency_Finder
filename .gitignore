@@ -1,0 +1,19 @@
+# Built application files
+backend/target/
+android/app/build/
+android/build/
+.gradle/
+android/.gradle/
+
+# Local configuration & secrets
+android/local.properties
+backend/src/main/resources/application-local.properties
+backend/src/main/resources/firebase-service-account.json
+
+# IDE and OS files
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+*.log

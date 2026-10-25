@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ── Permissions ─────────────────────────────────────────────────── -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Android 13+ notification permission -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".EmergencyApp"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_location"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_location"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EmergencyRouteFinder"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <!-- Google Maps API Key -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${MAPS_API_KEY}" />
+
+        <!-- ── Activities ──────────────────────────────────────────────── -->
+
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.EmergencyRouteFinder.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.auth.LoginActivity"
+            android:exported="true" />
+        <activity android:name=".ui.auth.UserRegisterActivity"
+            android:exported="true" />
+        <activity android:name=".ui.auth.WorkerRegisterActivity"
+            android:exported="true" />
+
+        <!-- User Screens -->
+        <activity android:name=".ui.user.UserDashboardActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.RequestEmergencyActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.MyRequestsActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.RequestDetailsActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.AssignedWorkerActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.LiveResponseMapActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.RouteDetailsActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.TrafficAnalysisActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.TrafficCameraActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.NearbyHospitalsActivity"
+            android:exported="true" />
+        <activity android:name=".ui.user.UserProfileActivity"
+            android:exported="true" />
+
+        <!-- Worker Screens -->
+        <activity android:name=".ui.worker.WorkerDashboardActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.WorkerAvailabilityActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.IncomingEmergencyActivity"
+            android:exported="true"
+            android:showWhenLocked="true"
+            android:turnScreenOn="true" />
+        <activity android:name=".ui.worker.ActiveEmergencyActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.WorkerRouteActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.WorkerTrafficCameraActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.WorkerHospitalActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.WorkerHistoryActivity"
+            android:exported="true" />
+        <activity android:name=".ui.worker.WorkerProfileActivity"
+            android:exported="true" />
+
+        <!-- ── Services ────────────────────────────────────────────────── -->
+        <service
+            android:name=".service.LocationForegroundService"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+
+        <!-- ── FCM Service ─────────────────────────────────────────────── -->
+        <service
+            android:name=".notification.EmergencyFcmService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296591878322",
+    "project_id": "emergency-route-finder-4737e",
+    "storage_bucket": "emergency-route-finder-4737e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296591878322:android:15a5af5c45ed4e1b4001ab",
+        "android_client_info": {
+          "package_name": "com.emergencyroutefinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT5k0cRhwweeTJFyPZwOOGk8qYLPFLJTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

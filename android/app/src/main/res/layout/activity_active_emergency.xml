@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Map (50% of screen) -->
+    <org.osmdroid.views.MapView android:id="@+id/map"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Control Panel -->
+    <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1" android:background="#FAFAFA">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+
+            <TextView android:id="@+id/tv_status"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Status: Loading..." android:textStyle="bold" android:textSize="16sp"
+                android:padding="8dp" android:background="#FFEBEE" android:textColor="#C62828"/>
+
+            <TextView android:id="@+id/tv_emergency_type"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:textSize="18sp" android:textStyle="bold"/>
+
+            <TextView android:id="@+id/tv_priority"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#757575"/>
+
+            <!-- Action Buttons Row 1 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="12dp">
+                <Button android:id="@+id/btn_responding"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="🚨 Responding"
+                    android:layout_marginEnd="4dp" android:backgroundTint="#E65100" android:textSize="11sp"/>
+                <Button android:id="@+id/btn_arrived"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="✅ Arrived"
+                    android:layout_marginStart="4dp" android:layout_marginEnd="4dp"
+                    android:backgroundTint="#1B5E20" android:textSize="11sp"/>
+                <Button android:id="@+id/btn_complete"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="🏁 Complete"
+                    android:layout_marginStart="4dp" android:backgroundTint="#1565C0" android:textSize="11sp"/>
+            </LinearLayout>
+
+            <!-- Navigation Buttons Row 2 -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="8dp">
+                <Button android:id="@+id/btn_view_route"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="Map Nav" android:textSize="11sp"
+                    android:layout_marginEnd="4dp" android:backgroundTint="#424242"/>
+                <Button android:id="@+id/btn_view_routes"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="AI Routes" android:textSize="11sp"
+                    android:layout_marginStart="4dp" android:layout_marginEnd="4dp" android:backgroundTint="#1565C0"/>
+                <Button android:id="@+id/btn_view_traffic"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:text="Traffic" android:textSize="11sp"
+                    android:layout_marginStart="4dp" android:backgroundTint="#E65100"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
